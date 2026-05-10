@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Kisah Para Nabi | Muhammad SAW - Teladan Sejati</title>
+    <!-- Font Awesome 6 (Gratis) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: Poppins & Playfair Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(145deg, #fef9e8 0%, #fff6ec 100%);
+            color: #2d2418;
+            scroll-behavior: smooth;
+        }
+
+        /* Background elegan motif islami subtle */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 10% 20%, rgba(200, 170, 120, 0.03) 2%, transparent 2.5%),
+                              radial-gradient(circle at 80% 70%, rgba(150, 110, 70, 0.03) 1.5%, transparent 2%);
+            background-size: 55px 55px, 40px 40px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Header Developer */
+        .dev-badge {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            color: #b97f44;
+            background: rgba(255, 245, 230, 0.8);
+            backdrop-filter: blur(2px);
+            display: inline-block;
+            width: auto;
+            padding: 0.4rem 1.8rem;
+            border-radius: 60px;
+            font-weight: 500;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            border: 1px solid #f3e1c0;
+        }
+
+        .dev-badge i {
+            margin-right: 8px;
+            color: #d9a066;
+        }
+
+        /* Header Utama */
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #c2783c, #9b5e2c);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #6b4c2c;
+            max-width: 650px;
+            margin: 0 auto;
+            font-weight: 400;
+            border-bottom: 2px dashed #eedbba;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        /* Kartu Utama Nabi */
+        .prophet-card {
+            background: #ffffffdd;
+            backdrop-filter: blur(4px);
+            border-radius: 2.5rem;
+            overflow: hidden;
+            box-shadow: 0 25px 45px -12px rgba(60, 30, 10, 0.2);
+            margin-bottom: 3rem;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(230, 200, 160, 0.5);
+        }
+
+        .prophet-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-inner {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .prophet-img {
+            flex: 1.2;
+            min-width: 280px;
+            background: linear-gradient(125deg, #f7e9da, #fef1e2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .prophet-img .img-symbol {
+            width: 240px;
+            height: 240px;
+            background: radial-gradient(circle, #f3e2cf, #e9cfb0);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 30px -8px rgba(0,0,0,0.2);
+            border: 4px solid #ffefcf;
+        }
+
+        .prophet-img .img-symbol i {
+            font-size: 110px;
+            color: #b5763a;
+            filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.1));
+        }
+
+        .prophet-info {
+            flex: 2;
+            padding: 2rem 2.2rem;
+        }
+
+        .prophet-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #8b5a2e;
+            margin-bottom: 0.25rem;
+        }
+
+        .arabic-name {
+            font-size: 1.8rem;
+            font-weight: 500;
+            font-family: 'Times New Roman', 'Amiri', serif;
+            color: #bc8f6a;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .title-prophet {
+            display: inline-block;
+            background: #e7cfb3;
+            padding: 0.25rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #6a3e1a;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.5px;
+        }
+
+        .description {
+            font-size: 1rem;
+            line-height: 1.65;
+            color: #352916;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .highlight-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-item {
+            background: #fdf3e6;
+            border-radius: 2rem;
+            padding: 0.4rem 1.2rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #7a4d20;
+            border-left: 4px solid #e5bc8b;
+        }
+
+        .quote {
+            font-style: italic;
+            background: #fef4e8;
+            padding: 1rem 1.4rem;
+            border-radius: 2rem;
+            color: #a5662c;
+            font-weight: 500;
+            border-right: 3px solid #e1bc8c;
+            margin-top: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        /* Bagian Lain: Daftar Nabi Populer */
+        .other-prophets {
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #8f603a;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 30%;
+            width: 40%;
+            height: 3px;
+            background: linear-gradient(90deg, #e9cba7, #c29260);
+            border-radius: 3px;
+        }
+
+        .prophet-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .prophet-mini {
+            background: #fffaf3;
+            border-radius: 2rem;
+            width: 160px;
+            padding: 1.2rem 0.5rem;
+            text-align: center;
+            transition: all 0.25s;
+            cursor: default;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.05);
+            border: 1px solid #f3e2cf;
+        }
+
+        .prophet-mini i {
+            font-size: 3rem;
+            color: #c28848;
+            margin-bottom: 0.5rem;
+        }
+
+        .prophet-mini h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #6e441f;
+        }
+
+        .prophet-mini p {
+            font-size: 0.75rem;
+            color: #b27a48;
+            margin-top: 5px;
+        }
+
+        .prophet-mini:hover {
+            background: #fff0e0;
+            transform: translateY(-6px);
+            border-color: #e2c29b;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 4rem;
+            text-align: center;
+            border-top: 1px solid #ebddca;
+            padding-top: 2rem;
+            color: #a77b4a;
+            font-size: 0.85rem;
+        }
+
+        .footer .developer-name {
+            font-weight: 700;
+            color: #bf7e3e;
+            letter-spacing: 1px;
+        }
+
+        .footer i {
+            color: #cb8b4a;
+            margin: 0 2px;
+        }
+
+        /* Responsive */
+        @media (max-width: 750px) {
+            .container {
+                padding: 1rem 1rem 2rem;
+            }
+            .prophet-name {
+                font-size: 1.9rem;
+            }
+            .arabic-name {
+                font-size: 1.4rem;
+            }
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .prophet-info {
+                padding: 1.5rem;
+            }
+            .prophet-img .img-symbol {
+                width: 160px;
+                height: 160px;
+            }
+            .prophet-img .img-symbol i {
+                font-size: 75px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .highlight-grid {
+                justify-content: center;
+            }
+            .prophet-mini {
+                width: 130px;
+            }
+        }
+
+        button, a {
+            transition: all 0.2s;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- Badge Developer (pembuat) -->
+    <div style="text-align: center;">
+        <div class="dev-badge">
+            <i class="fas fa-code-branch"></i> PEMBUAT : THOHIR DEVELOPER <i class="fas fa-star-of-life"></i>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>✦ Kisah Para Nabi ✦</h1>
+        <p>Meneladani cahaya kebenaran & kasih sayang</p>
+    </div>
+
+    <!-- Kartu Utama: Nabi Muhammad SAW (contoh nabi pilihan, bisa ganti nabi lain) -->
+    <div class="prophet-card">
+        <div class="card-inner">
+            <div class="prophet-img">
+                <div class="img-symbol">
+                    <i class="fas fa-mosque"></i> <!-- Simbol masjid elegan -->
+                </div>
+            </div>
+            <div class="prophet-info">
+                <div class="prophet-name">Muhammad bin Abdullah</div>
+                <div class="arabic-name">ﷺ مُحَمَّدٌ رَسُولُ اللَّهِ</div>
+                <div class="title-prophet"><i class="fas fa-crown"></i> Penutup Para Nabi | Rahmat bagi Seluruh Alam</div>
+                <div class="description">
+                    Nabi Muhammad SAW adalah nabi terakhir yang diutus oleh Allah SWT untuk membawa risalah Islam sebagai rahmatan lil 'alamin (rahmat bagi seluruh alam). 
+                    Beliau lahir di Makkah pada Tahun Gajah, dan sejak muda terkenal dengan sebutan Al-Amin (yang terpercaya). Melalui wahyu Al-Qur'an, 
+                    beliau membimbing umat manusia dari kegelapan menuju cahaya iman, keadilan, dan akhlak mulia. Kesabaran, keteladanan, dan kasih sayangnya 
+                    terhadap semua makhluk menjadi pedoman sempurna sepanjang zaman.
+                </div>
+                <div class="highlight-grid">
+                    <span class="highlight-item"><i class="fas fa-book-open"></i> Al-Qur'an & Sunnah</span>
+                    <span class="highlight-item"><i class="fas fa-hand-holding-heart"></i> Akhlak Mulia</span>
+                    <span class="highlight-item"><i class="fas fa-balance-scale"></i> Keadilan Universal</span>
+                    <span class="highlight-item"><i class="fas fa-dove"></i> Rahmat bagi Semesta</span>
+                </div>
+                <div class="quote">
+                    <i class="fas fa-quote-left"></i> "Sesungguhnya aku diutus untuk menyempurnakan akhlak yang mulia." (HR. Ahmad)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Kumpulan Nabi Lainnya (Pilihan 6 Nabi terkenal) dengan gaya menarik -->
+    <div class="other-prophets">
+        <div class="section-title">☪️  Teladan Para Rasul  ☪️</div>
+        <div class="prophet-list">
+            <div class="prophet-mini">
+                <i class="fas fa-water"></i>
+                <h4>Nabi Nuh AS</h4>
+                <p>Kesabaran & dakwah ribuan tahun</p>
+            </div>
+            <div class="prophet-mini">
+                <i class="fas fa-fire"></i>
+                <h4>Nabi Ibrahim AS</h4>
+                <p>Bapak para nabi, keikhlasan</p>
+            </div>
+            <div class="prophet-mini">
+                <i class="fas fa-moon"></i>
+                <h4>Nabi Yusuf AS</h4>
+                <p>Ketampanan hati & ampunan</p>
+            </div>
+            <div class="prophet-mini">
+                <i class="fas fa-mountain"></i>
+                <h4>Nabi Musa AS</h4>
+                <p>Menghadapi kezaliman</p>
+            </div>
+            <div class="prophet-mini">
+                <i class="fas fa-bolt"></i>
+                <h4>Nabi Isa AS</h4>
+                <p>Mukjizat & kasih sayang</p>
+            </div>
+            <div class="prophet-mini">
+                <i class="fas fa-feather-alt"></i>
+                <h4>Nabi Yunus AS</h4>
+                <p>Taubat & keajaiban doa</p>
+            </div>
+        </div>
+        <p style="margin-top: 1.8rem; font-size: 0.85rem; color: #b08554;">
+            <i class="fas fa-praying-hands"></i> Setiap nabi membawa cahaya petunjuk, semoga kita dapat meneladani akhlak mulia mereka.
+        </p>
+    </div>
+
+    <!-- Tambahan: Area untuk lebih menghargai nabi pilihan, bisa dinamis -->
+    <div style="margin: 3rem 0 1rem; background: #fff6eb; border-radius: 2rem; padding: 1.5rem; text-align: center; border: 1px solid #f5e3cd;">
+        <i class="fas fa-seedling" style="color:#c48242; font-size: 2rem; opacity: 0.7;"></i>
+        <h3 style="font-family: 'Playfair Display'; font-weight: 600; margin: 0.5rem 0; color: #7e5837;">Kisah & Hikmah</h3>
+        <p style="max-width: 700px; margin: 0 auto; font-size: 0.95rem;">Tak hanya Nabi Muhammad SAW, seluruh 25 nabi yang wajib diketahui memiliki mukjizat dan teladan luar biasa. 
+        Website ini didedikasikan untuk menyebarkan nilai-nilai kebaikan, kesabaran, dan keimanan. <strong>MasyaAllah</strong>, semoga kita semakin cinta pada para nabi.</p>
+        <div style="margin-top: 1.2rem;">
+            <span style="background:#ebdccb; padding:0.3rem 0.9rem; border-radius:40px; font-size:0.8rem;"><i class="fas fa-ribbon"></i> THOHIR DEVELOPER - Berbagi keberkahan</span>
+        </div>
+    </div>
+
+    <!-- Footer Credit style -->
+    <div class="footer">
+        <p><i class="fas fa-crown"></i> Didedikasikan untuk kemuliaan agama & bangsa  <i class="fas fa-heart" style="color:#cf7d3a;"></i></p>
+        <p>© 2025 | <span class="developer-name">THOHIR DEVELOPER</span> | <i class="fas fa-mosque"></i>  Menerangi hati dengan kisah kenabian</p>
+        <p style="margin-top: 0.4rem; font-size: 0.7rem;">“Sampaikanlah dariku walau satu ayat” (HR. Bukhari)</p>
+    </div>
+</div>
+
+<!-- Penambahan efek smooth hover dan sedikit animasi interaksi -->
+<script>
+    // efek halus pada mini card (hanya mempercantik interaksi)
+    const miniCards = document.querySelectorAll('.prophet-mini');
+    miniCards.forEach(card => {
+        card.addEventListener('click', () => {
+            // Optional: tampilkan alert popup untuk informasi tambahan (Menambah kesan islami)
+            const name = card.querySelector('h4')?.innerText || 'Nabi';
+            alert(`✨ ${name} ✨\nSemoga kita bisa meneladani kisahnya. MasyaAllah, tabarakallah.`);
+        });
+    });
+</script>
+</body>
+</html>
